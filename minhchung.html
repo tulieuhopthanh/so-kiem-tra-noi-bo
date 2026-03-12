@@ -1,0 +1,31 @@
+<div id="customConfirmModal" class="modal-overlay">
+  <div class="modal-box">
+    <h3 style="color:#d32f2f;">⚠️ QUAN TRỌNG</h3>
+    <p>Bạn có chắc chắn muốn xóa dòng này không?</p>
+    <button onclick="closeConfirmModal()">Không xóa</button>
+    <button onclick="processDelete()" style="background:#d32f2f; color:white;">Có xóa</button>
+  </div>
+</div>
+
+<div id="modal_overlay" class="modal-overlay">
+  <div class="modal-box">
+    <h4 id="modal_message" style="color:#1e3a8a;"></h4>
+    <button onclick="closeModal()">ĐÓNG</button>
+  </div>
+</div>
+
+<div id="upload_modal">
+  <div class="up-container">
+    <div class="up-header"><h2>📁 MINH CHỨNG</h2></div>
+    <div class="up-box">
+       <select id="folderSelect"></select>
+    </div>
+    <div class="up-dropzone" onclick="document.getElementById('fileIn').click()">
+       <span id="fileLabel">Nhấn vào đây để chọn file</span>
+       <input type="file" id="fileIn" style="display:none" onchange="fileSel(this)" multiple>
+    </div>
+    <div id="upStatus"></div>
+    <button id="uploadBtn" onclick="doUpload()">BẮT ĐẦU TẢI LÊN</button>
+    <button onclick="closeUploadModal()">ĐÓNG</button>
+  </div>
+</div>

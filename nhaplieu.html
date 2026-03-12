@@ -1,0 +1,39 @@
+<div id="main_content">
+  <div class="header-card">
+    <h1 class="page-title">SỔ KIỂM TRA NỘI BỘ</h1>
+    <div class="filter-section">
+      <div class="f-item"><span>Giáo viên</span><select id="cbGiaoVien" class="f-input" onchange="onUserChange('GV')"></select></div>
+      <div class="f-item"><span>Người kiểm tra</span><select id="cbNguoiKiemTra" class="f-input" onchange="onUserChange('NKT')"></select></div>
+      <div class="f-item"><span>Bộ phận</span><select id="cbBoPhan" class="f-input" onchange="updateMaBoPhan()"></select></div>
+      <div class="f-item"><span>Mã bộ phận</span><input type="text" id="txtMaBoPhan" class="f-input" readonly></div>
+      <div class="f-item">
+        <span>Mã hồ sơ <button id="btnRefreshMaHoSo" class="refresh-btn" onclick="refreshMaHoSoList()">↻</button></span>
+        <select id="cbMaHoSo" class="f-input" onchange="onUserChange('MAHS')"></select>
+      </div>
+    </div>
+    
+    <div class="status-stepper">
+      <div id="step1" class="step active">1. CHỜ CHỌN</div>
+      <div id="step2" class="step">2. NẠP DỮ LIỆU</div>
+      <div id="step3" class="step">3. PHÂN QUYỀN</div>
+      <div id="step4" class="step">4. SẴN SÀNG</div>
+      <button class="btn-row btn-reset" onclick="resetForm()">LÀM MỚI</button>
+      <button id="btnSubmit" class="btn-row btn-submit" onclick="handleSubmit()">NỘP KẾT QUẢ</button>
+      <span id="user_display"></span>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table id="mainTable">
+      <thead>
+        <tr>
+          <th>🗑️</th> <th>STT</th> <th>Thời gian</th> <th>Nội dung</th> <th>Ưu điểm</th> <th>Tồn tại</th> <th>Biện pháp</th>
+          <th>XL HS</th> <th>XL GD</th> <th>XL KS</th> <th>XL khác</th> <th>Ý kiến</th> <th>Ký tên</th> <th>Minh chứng</th> <th>Mã HS</th>
+        </tr>
+      </thead>
+      <tbody id="tableContent"></tbody>
+    </table>
+    <button class="btn-add-row" onclick="addNewRow()">➕ Thêm dòng</button>
+  </div>
+  <button id="btnSave" class="btn-save" onclick="handleSave()">LƯU KẾT QUẢ</button>
+</div>

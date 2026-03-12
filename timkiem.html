@@ -1,0 +1,34 @@
+<div class="header-card">
+  <div class="page-title">TRA CỨU HỒ SƠ - THỐNG KÊ</div>
+  <div class="filter-section-search">
+    <div class="f-item"><span>Giáo viên</span><select id="s_gv" class="f-input"><option value="">-- Tất cả --</option></select></div>
+    <div class="f-item"><span>Người kiểm tra</span><select id="s_nkt" class="f-input"><option value="">-- Tất cả --</option></select></div>
+    <div class="f-item"><span>Bộ phận</span><select id="s_bp" class="f-input"><option value="">-- Tất cả --</option></select></div>
+    <div class="f-item"><span>Từ ngày</span><input type="text" id="s_from" class="f-input text-center"></div>
+    <div class="f-item"><span>Đến ngày</span><input type="text" id="s_to" class="f-input text-center"></div>
+    <div class="f-item">
+      <button class="search-btn" onclick="doSearch()">🔍 Tìm</button>
+      <button class="reset-search-btn" onclick="clearSearch()">↻</button>
+      <button class="print-btn" onclick="printReport()">🖨️</button>
+      <span id="print_link_container"></span>
+    </div>
+  </div>
+
+  <div class="stats-container" id="dashboard_stats" style="display:none;">
+    <div class="stat-group"><div class="sg-row"><span>TỔNG SỐ:</span><span id="st_total" class="sg-total">0</span></div></div>
+    </div>
+</div>
+
+<div class="table-container-search">
+  <table class="result-table">
+    <thead>
+      <tr>
+        <th style="width:40px">STT</th><th>Thời gian</th><th>Giáo viên</th><th>Người KT</th><th>Bộ phận</th>
+        <th>Nội dung</th><th>Ưu điểm</th><th>Tồn tại</th><th>Biện pháp</th><th>HS</th><th>GD</th><th>KS</th><th>Khác</th>
+        <th>Ý kiến</th><th>Ký tên</th><th>File</th><th>Mã HS</th>
+      </tr>
+    </thead>
+    <tbody id="searchBody"></tbody>
+  </table>
+</div>
+<div style="text-align: center; font-size: 11px; margin-top: 10px;">Thiết kế: Hoàng Ngọc Lâm</div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sổ Kiểm Tra - TH&THCS Hợp Thành</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Chép toàn bộ phần CSS TỔNG HỢP từ file gốc của anh vào đây */
+    /* Em giữ nguyên các biến --primary-blue, .dev-badge-container, .tab-button... */
+  </style>
+</head>
+<body>
+
+  <div id="auth-overlay">
+    <div class="auth-box">
+      <h4 style="color:#1e3a8a; font-weight:bold; margin-bottom:10px;">XÁC THỰC HỆ THỐNG</h4>
+      <input type="email" id="loginEmail" class="auth-input" placeholder="VD: lanhdao@gmail.com">
+      <button class="auth-btn" onclick="startApp()">ĐĂNG NHẬP</button>
+    </div>
+  </div>
+
+  <div id="instant-loader"><div class="spinner-ring"></div></div>
+
+  <div id="main-wrapper">
+    <div class="school-header">
+      <div class="logo-group">
+        <img src="https://i.ibb.co/SXSKh9xM/Logo-m-i-c-a-tr-ng-H-p-Th-Nh.png" class="school-logo">
+        <span class="school-name">Trường TH&THCS Hợp Thành</span>
+      </div>
+      <div class="dev-badge-container">
+        <div class="dev-icon-fly">🚀</div>
+        <div class="dev-text-group">
+          <div class="dev-name-label">HOÀNG NGỌC LÂM</div>
+          <div class="dev-role-label">System Developer</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="so_wrapper">
+      <div class="tab-container">
+        <button class="tab-button active" onclick="switchTab('TabNhapLieu', this)">📝 GHI SỔ</button>
+        <button class="tab-button" onclick="switchTab('TabTimKiem', this)">🔍 THỐNG KÊ</button>
+        <button class="tab-button" onclick="switchTab('TabHuongDan', this)">ℹ️ HƯỚNG DẪN</button>
+      </div>
+      
+      <div id="TabNhapLieu" class="tab-content active"></div>
+      <div id="TabTimKiem" class="tab-content"></div>
+      <div id="TabHuongDan" class="tab-content">
+         <p><b> Tác giả: Hoàng Ngọc Lâm </b></p>
+      </div>
+    </div>
+
+    <div id="modal-container"></div>
+  </div>
+
+  <script src="ketnoi.js"></script>
+
+  <script>
+    // Hàm tự động nạp nội dung từ các file lẻ trên GitHub
+    async function loadComponents() {
+      try {
+        const [nhaplieu, timkiem, minhchung] = await Promise.all([
+          fetch('nhaplieu.html').then(r => r.text()),
+          fetch('timkiem.html').then(r => r.text()),
+          fetch('minhchung.html').then(r => r.text())
+        ]);
+        document.getElementById('TabNhapLieu').innerHTML = nhaplieu;
+        document.getElementById('TabTimKiem').innerHTML = timkiem;
+        document.getElementById('modal-container').innerHTML = minhchung;
+        console.log("Hệ thống đã sẵn sàng!");
+      } catch (e) {
+        console.error("Lỗi nạp file:", e);
+      }
+    }
+    window.onload = loadComponents;
+  </script>
+</body>
+</html>
